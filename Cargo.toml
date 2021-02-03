@@ -1,0 +1,15 @@
+[package]
+name = "yarchi"
+version = "0.1.0"
+authors = ["Matej Gera <matejgera@gmail.com>"]
+description =  "Yet another Rust CHIP-8 interpreter!"
+license = "MIT"
+edition = "2018"
+homepage = "https://github.com/matej-g/yarchi"
+repository = "https://github.com/matej-g/yarchi"
+
+[dependencies]
+clap = "2.33"
+num-traits = "0.2"
+rand = "0.8"
+sdl2 = "0.34"
