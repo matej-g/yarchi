@@ -11,7 +11,7 @@ Yarchi is a simple yet functional CHIP-8 interpreter (emulator).
 - Possibility to run in CHIP-48 mode (required for some games to function properly)
 - Debug mode
 
-## Pre-requisites
+## Prerequisites
 The interpreter depends on SDL2 library in order to handle video, audio and inputs. It must be therefore installed on your system.
 
 On GNU/Linux operating systems this can be as simple as installing (example from Ubuntu 20.04):

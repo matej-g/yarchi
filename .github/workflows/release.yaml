@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    branches:
+    - 'releases/**'
+  pull_request:
+    branches:
+    - 'releases/**'
+
+jobs:
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install SDL2
+      run: sudo apt-get update && sudo apt-get -y install libsdl2-dev
+    - name: Build
+      run: cargo build --release --verbose
+    - name: Upload built release
+      uses: actions/upload-artifact@v2
+      with:
+        name: yarchi-rel-linux
+        path: target/release/yarchi
+  build_macos:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install SDL2
+      run: brew install sdl2
+    - name: Build
+      run: cargo build --release --verbose
+    - name: Upload built release
+      uses: actions/upload-artifact@v2
+      with:
+        name: yarchi-rel-macos
+        path: target/release/yarchi
+  # TODO: Win build later
+  # build_win:
+  #   runs-on: windows-latest
+  #   steps:
+  #   - name: Checkout
+  #     uses: actions/checkout@v2
+  #   - name: Build
+  #     run: cargo build --release --verbose
+  #   - name: Upload built release
+  #     uses: actions/upload-artifact@v2
+  #     with:
+  #       name: yarchi-rel-win
+  #       path: target/release/yarchi
